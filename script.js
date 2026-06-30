@@ -24,7 +24,7 @@
   // Cuando se conozca el ID del Drive, sustituir DRIVE_BASE por la URL real
   // de la carpeta "1_Para_tu_familia" o por enlaces individuales por documento.
   // Por defecto el botón muestra un mensaje amistoso.
-  const DRIVE_BASE = ''; // ej. 'https://drive.google.com/drive/folders/XXXXX'
+  const DRIVE_BASE = 'https://drive.google.com/drive/folders/1qP1Y0E1e_EBHQKlmh6s3KZhD2TZuU4ej'; // ej. 'https://drive.google.com/drive/folders/XXXXX'
 
   document.querySelectorAll('[data-drive]').forEach(el => {
     if (DRIVE_BASE) {
