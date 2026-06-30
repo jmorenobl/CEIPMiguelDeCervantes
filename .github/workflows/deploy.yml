@@ -1,0 +1,51 @@
+name: Deploy a GitHub Pages
+
+# Despliega automáticamente la web del AMPA del CEIP Miguel de Cervantes
+# cada vez que se hace push a la rama main.
+#
+# También se puede lanzar manualmente desde la pestaña Actions
+# (botón "Run workflow") sin necesidad de hacer push.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Permisos mínimos necesarios para que Pages pueda desplegar.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Evita que dos deploys simultáneos pisen el mismo despliegue.
+# Si haces dos pushes seguidos, el segundo cancela al primero.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir el sitio como artefacto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # El sitio vive en la raíz del repo (no hay build step).
+          path: '.'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Desplegar a GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

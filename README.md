@@ -32,21 +32,14 @@ O con Node:
 npx serve .
 ```
 
-## Cómo subir a GitHub Pages
+## Cómo subir a GitHub Pages (deploy automático con Actions)
 
-Hay un script `setup_git.sh` que automatiza el primer paso. Desde la terminal de tu Mac:
+El repositorio incluye un workflow de GitHub Actions en `.github/workflows/deploy.yml` que **despliega automáticamente cada vez que se hace push a `main`**. No hay paso de build; el contenido del repo se sube tal cual a Pages.
 
-```bash
-cd /Users/jorge/Projects/CPMiguelDeCervantes/web
-./setup_git.sh
-```
+### Pasos (solo la primera vez)
 
-Te pedirá nombre y correo para los commits, hará `git init`, añadirá los archivos y creará el primer commit. Al terminar te imprime las instrucciones para vincular con GitHub.
-
-### Resumen del proceso completo
-
-1. **Ejecutar `./setup_git.sh`** en tu Mac (inicializa git + primer commit).
-2. **Crear el repositorio en GitHub** (vacío, sin README inicial): https://github.com/new
+1. **Inicializar git** (si no está ya hecho): `./setup_git.sh` o manualmente con `git init -b main && git add . && git commit -m "Initial commit"`.
+2. **Crear el repositorio en GitHub** vacío: https://github.com/new
 3. **Vincular y empujar**:
 
    ```bash
@@ -54,14 +47,23 @@ Te pedirá nombre y correo para los commits, hará `git init`, añadirá los arc
    git push -u origin main
    ```
 
-4. **Activar GitHub Pages** en el repositorio:
+4. **Activar GitHub Pages con Actions**:
    - Ir a *Settings → Pages*
-   - *Source*: **Deploy from a branch**
-   - *Branch*: `main`, *Folder*: `/ (root)`
+   - En *Source* seleccionar **GitHub Actions** (no "Deploy from a branch")
    - Guardar
-5. **Esperar 1-2 minutos** y abrir la URL que aparece (suele ser `https://<usuario>.github.io/<repo>/`).
+5. **Esperar a que termine el primer workflow** (1-2 minutos). Lo ves en la pestaña *Actions* del repo. Cuando aparezca el tick verde, la URL estará disponible en *Settings → Pages*.
 
-El archivo `.nojekyll` ya está incluido para que GitHub Pages no procese la web como Jekyll.
+A partir de ahí, **cada `git push` a main despliega automáticamente**. El estado del deploy se ve en la pestaña *Actions* (verde = OK, rojo = falló, con logs).
+
+### Lanzar un deploy manual (sin push)
+
+Útil para forzar un redeploy sin cambiar nada del código:
+
+- Ir a *Actions → Deploy a GitHub Pages → Run workflow → main → Run*
+
+### Si prefieres el método clásico (sin Actions)
+
+Borra `.github/workflows/deploy.yml` y en *Settings → Pages* selecciona *Source: Deploy from a branch → main → / (root)*. El archivo `.nojekyll` evita que GitHub Pages procese el sitio como Jekyll.
 
 ## Cómo configurar el enlace al Google Drive
 
