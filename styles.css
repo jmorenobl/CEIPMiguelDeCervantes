@@ -663,3 +663,50 @@ a:hover { color: var(--accent); }
   text-decoration: none;
 }
 .escrito__link:hover { text-decoration: underline; }
+
+/* ============================================================
+   GUÍA ILUSTRADA (guia-ayuntamiento.html)
+   ============================================================ */
+.hero--compact { padding: 1.5rem 1rem 1.75rem; }
+.hero--compact .hero__title { font-size: 1.7rem; }
+.topbar__nav--static { position: static; display: flex; box-shadow: none; background: transparent; padding: 0; }
+.topbar__nav--static a { color: #fff; padding: 0; font-weight: 600; }
+
+.gsteps { display: flex; flex-direction: column; gap: 1.25rem; }
+.gstep {
+  background: white; border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+}
+.gstep__head {
+  display: flex; align-items: center; gap: 0.7rem;
+  background: var(--light-bg); border-bottom: 1px solid var(--border);
+  padding: 0.7rem 1rem;
+}
+.gstep__head h3 { margin: 0; font-size: 1.1rem; color: var(--blue); }
+.gstep__num {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--accent); color: white; font-weight: 700;
+  display: grid; place-items: center; font-size: 0.95rem;
+}
+.gstep__body { padding: 1rem; }
+.gstep__body p { margin: 0 0 0.7rem; }
+.gstep__body p:last-child { margin-bottom: 0; }
+
+.shot {
+  margin: 0.9rem 0 0; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); overflow: hidden; background: #fff;
+}
+.shot img { display: block; width: 100%; height: auto; }
+.shot figcaption {
+  font-size: 0.85rem; color: var(--text-muted);
+  padding: 0.5rem 0.75rem; background: var(--light-bg);
+  border-top: 1px solid var(--border);
+}
+.copybox__head h4 { margin: 0; font-size: 0.98rem; color: var(--blue); }
+
+/* Botón guía dentro de la tarjeta del escrito */
+.escrito__guide {
+  display: inline-block; margin-top: 0.4rem;
+  font-size: 0.9rem; font-weight: 600; text-decoration: none;
+}
+.escrito__guide:hover { text-decoration: underline; }
