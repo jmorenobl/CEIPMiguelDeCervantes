@@ -710,3 +710,8 @@ a:hover { color: var(--accent); }
   font-size: 0.9rem; font-weight: 600; text-decoration: none;
 }
 .escrito__guide:hover { text-decoration: underline; }
+
+/* Par de capturas (vía alternativa en guía Consejería) */
+.shotpair { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem; }
+@media (min-width: 700px) { .shotpair { grid-template-columns: 1fr 1fr; } }
+.shotpair .shot { margin: 0; }
