@@ -155,6 +155,8 @@ a:hover { color: var(--accent); }
 .btn--ghost { background: transparent; color: white; border-color: rgba(255,255,255,0.5); }
 .btn--ghost:hover { background: rgba(255,255,255,0.1); color: white; }
 .btn--small { padding: 0.65rem 1.1rem; font-size: 0.95rem; }
+.btn--outline { background: #fff; color: var(--blue); border-color: var(--blue); }
+.btn--outline:hover { background: var(--blue); color: #fff; transform: translateY(-1px); }
 .btn--large { padding: 1.1rem 2rem; font-size: 1.1rem; }
 
 /* ============================================================
@@ -715,3 +717,59 @@ a:hover { color: var(--accent); }
 .shotpair { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem; }
 @media (min-width: 700px) { .shotpair { grid-template-columns: 1fr 1fr; } }
 .shotpair .shot { margin: 0; }
+
+/* ============================================================
+   Navegación entre páginas (pie de las guías)
+   ============================================================ */
+.guidenav {
+  border-top: 1px solid var(--border);
+  background: var(--light-bg);
+  padding: 1.75rem 0 2rem;
+}
+.guidenav__eyebrow {
+  display: block; text-align: center;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem;
+}
+.guidenav__primary {
+  display: flex; flex-wrap: wrap; gap: 0.6rem;
+  justify-content: center; margin-bottom: 1.4rem;
+}
+.guidenav__grid { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+@media (min-width: 640px) { .guidenav__grid { grid-template-columns: 1fr 1fr; } }
+.guidenav__card {
+  display: flex; align-items: center; gap: 0.65rem;
+  background: #fff; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 0.85rem 1rem;
+  text-decoration: none; color: var(--text);
+  box-shadow: var(--shadow); transition: border-color .15s, transform .15s;
+}
+.guidenav__card:hover { border-color: var(--blue); transform: translateY(-1px); color: var(--text); }
+.guidenav__card .gn__num {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--blue); color: #fff; font-weight: 700;
+  display: grid; place-items: center; font-size: 0.9rem;
+}
+.guidenav__card .gn__t { font-weight: 600; font-size: 0.97rem; line-height: 1.25; }
+.guidenav__card .gn__t small { display: block; font-weight: 400; color: var(--text-muted); font-size: 0.82rem; }
+
+/* ============================================================
+   Botón flotante "volver arriba"
+   ============================================================ */
+.to-top {
+  position: fixed; right: 16px; bottom: 16px; z-index: 60;
+  width: 46px; height: 46px; border-radius: 50%;
+  border: none; cursor: pointer;
+  background: var(--blue); color: #fff;
+  font-size: 1.3rem; line-height: 1;
+  box-shadow: var(--shadow-lg);
+  display: grid; place-items: center;
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .2s, transform .2s, visibility .2s;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.to-top:hover { background: var(--blue-light); }
+
+/* Estado activo del menú principal */
+.topbar__nav a.is-active { color: var(--accent); font-weight: 700; }

@@ -80,6 +80,41 @@
     });
   });
 
+  // -------- Botón flotante "volver arriba" --------
+  const toTop = document.createElement('button');
+  toTop.className = 'to-top';
+  toTop.setAttribute('aria-label', 'Volver arriba');
+  toTop.innerHTML = '↑';
+  document.body.appendChild(toTop);
+  toTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  const onScrollTop = () => {
+    if (window.scrollY > 600) toTop.classList.add('is-visible');
+    else toTop.classList.remove('is-visible');
+  };
+  window.addEventListener('scroll', onScrollTop, { passive: true });
+  onScrollTop();
+
+  // -------- Resaltar sección activa en el menú (solo inicio) --------
+  if (nav) {
+    const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+    const sections = links
+      .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+      .filter(Boolean);
+    if (sections.length && 'IntersectionObserver' in window) {
+      const setActive = (id) => {
+        links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + id));
+      };
+      const spy = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      sections.forEach(s => spy.observe(s));
+    }
+  }
+
   // -------- Animación de barras (efecto multiplicador) --------
   // Activar el ancho cuando entra en viewport
   const bars = document.querySelectorAll('.bar__fill');
