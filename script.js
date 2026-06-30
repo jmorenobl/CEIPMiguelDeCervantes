@@ -44,6 +44,42 @@
     }
   });
 
+  // -------- Botones "Copiar" (texto listo para pegar) --------
+  document.querySelectorAll('.copybtn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const target = document.querySelector(btn.getAttribute('data-copy'));
+      if (!target) return;
+      // Texto plano respetando saltos de párrafo
+      const text = Array.from(target.querySelectorAll('p'))
+        .map(p => p.textContent.trim())
+        .join('\n\n');
+      const done = () => {
+        const original = btn.textContent;
+        btn.textContent = '✓ Copiado';
+        btn.classList.add('is-copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('is-copied');
+        }, 1800);
+      };
+      try {
+        await navigator.clipboard.writeText(text);
+        done();
+      } catch (e) {
+        // Fallback para navegadores antiguos / sin permiso de portapapeles
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (_) {}
+        document.body.removeChild(ta);
+      }
+    });
+  });
+
   // -------- Animación de barras (efecto multiplicador) --------
   // Activar el ancho cuando entra en viewport
   const bars = document.querySelectorAll('.bar__fill');
