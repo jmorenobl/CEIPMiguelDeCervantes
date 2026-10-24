@@ -568,6 +568,8 @@ a:hover { color: var(--accent); }
 }
 .footer p { margin: 0 0 0.5rem; line-height: 1.5; }
 .footer__small { font-size: 0.82rem; opacity: 0.75; }
+.footer a { color: inherit; }
+.footer a:hover { color: white; }
 
 /* ============================================================
    DESKTOP — > 768px
