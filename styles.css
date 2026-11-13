@@ -775,3 +775,12 @@ a:hover { color: var(--accent); }
 
 /* Estado activo del menú principal */
 .topbar__nav a.is-active { color: var(--accent); font-weight: 700; }
+
+/* Enlace al mapa de ramificación (nov 2026) */
+.ramal{display:block;margin:1.5rem 0 1.75rem;padding:1.25rem 1.4rem;border-radius:var(--radius);background:var(--blue);color:#fff;text-decoration:none;box-shadow:var(--shadow-lg);transition:transform .15s}
+.ramal:hover{transform:translateY(-2px)}
+.ramal__nums{display:block;font-size:.85rem;opacity:.85;letter-spacing:.02em}
+.ramal__nums b{font-size:1.05rem;color:var(--highlight)}
+.ramal__title{display:block;font-size:1.25rem;margin:.4rem 0 .3rem;line-height:1.25}
+.ramal__text{display:block;font-size:.95rem;opacity:.9;line-height:1.45}
+.ramal__cta{display:inline-block;margin-top:.8rem;font-weight:600;border-bottom:2px solid var(--highlight)}
