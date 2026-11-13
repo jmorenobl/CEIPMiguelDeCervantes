@@ -1,140 +1,190 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cómo se ha ramificado — Quejas CEIP Miguel de Cervantes</title>
-<meta name="description" content="De 4 escritos a 24 registros y 10 expedientes en cinco meses: el mapa de cómo una sola familia ha puesto en marcha a nueve órganos públicos.">
-<meta property="og:title" content="Una familia, cuatro escritos… y todo un Ayuntamiento en alerta">
-<meta property="og:description" content="De 4 escritos a 24 registros y 10 expedientes en cinco meses.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#f6f3ec; --ink:#1d1b18; --muted:#6b655b; --line:#d9d2c3; --card:#fffdf8;
-  --ayto:#c4502d; --cam:#2f5f9e; --dp:#2e7d5b; --efe:#b8860b;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.5}
-.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 80px}
-.back{display:inline-block;margin-bottom:22px;font-size:14px;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--card)}
-.back:hover{border-color:var(--ink)}
-.cta{display:inline-block;margin-top:18px;background:var(--ink);color:#fff;text-decoration:none;border-radius:999px;padding:11px 20px;font-weight:500}
-h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(38px,6vw,72px);line-height:1.02;margin:0 0 18px;letter-spacing:-.01em}
-h1 em{color:var(--ayto)}
-h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(28px,4vw,42px);margin:64px 0 12px;line-height:1.1}
-.lede{font-size:clamp(17px,2vw,20px);max-width:760px;color:#3a362f;margin:0}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:34px 0 26px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
-.kpi b{display:block;font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(36px,5vw,56px);line-height:1}
-.kpi span{font-size:13px;color:var(--muted)}
-.kpi small{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted)}
-.controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:8px 0 10px}
-button{font:inherit;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:999px;padding:9px 18px;cursor:pointer;font-weight:500}
-button.ghost{background:transparent;color:var(--ink)}
-input[type=range]{flex:1;min-width:220px;accent-color:var(--ayto)}
-.datebadge{font-family:"IBM Plex Mono",monospace;font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 10px;min-width:150px;text-align:center}
-.mapbox{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-svg{display:block}
-.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:12px 4px 0}
-.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
-.detail{margin-top:14px;background:var(--ink);color:#f3efe6;border-radius:14px;padding:16px 20px;min-height:86px}
-.detail .d{font-family:"IBM Plex Mono",monospace;font-size:12px;opacity:.7;text-transform:uppercase;letter-spacing:.06em}
-.detail .t{font-weight:600;font-size:17px;margin:2px 0}
-.detail .x{font-size:15px;opacity:.9}
-.node{cursor:pointer;transition:opacity .35s, transform .35s}
-.hidden{opacity:0;pointer-events:none}
-.lanepath{transition:stroke-dashoffset .5s}
-.lessons{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-.lesson{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-.lesson h3{margin:0 0 6px;font-size:16px}
-.lesson p{margin:0;font-size:15px;color:#3a362f}
-.effects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
-.effect{border-left:4px solid var(--efe);background:var(--card);padding:12px 16px;border-radius:0 12px 12px 0}
-.effect b{display:block}
-.effect span{font-size:14px;color:var(--muted)}
-.mult{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:16px}
-.mult label{display:block;font-size:14px;color:var(--muted);margin-top:10px}
-.mult .row{display:flex;align-items:center;gap:14px}
-.mult output{font-family:"IBM Plex Mono",monospace;font-size:18px;min-width:40px}
-.schools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
-.school{flex:1;min-width:120px;border-radius:12px;padding:12px;background:#f1ebdf;text-align:center;font-size:13px;transition:all .3s}
-.school.on{background:var(--ayto);color:#fff}
-.school b{display:block;font-family:"Instrument Serif",serif;font-weight:400;font-size:34px;line-height:1}
-.total{font-family:"Instrument Serif",serif;font-size:clamp(26px,3.6vw,38px);margin-top:14px;line-height:1.2}
-.total em{color:var(--ayto);font-style:normal}
-.note{font-size:12px;color:var(--muted);margin-top:8px}
-footer{margin-top:56px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
-@media (max-width:760px){
-  .kpis{grid-template-columns:repeat(2,1fr)}
-  .lessons,.effects{grid-template-columns:1fr}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1F3864">
+  <title>Cómo se ha ramificado — Quejas CEIP Miguel de Cervantes (Leganés)</title>
+  <meta name="description" content="De 4 escritos a 24 registros y 10 expedientes en cinco meses: el mapa de cómo una sola familia ha puesto en marcha a nueve organismos públicos.">
+  <meta property="og:title" content="Una familia, cuatro escritos… y todo un Ayuntamiento en alerta">
+  <meta property="og:description" content="De 4 escritos a 24 registros y 10 expedientes en cinco meses.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%231F3864%22/&gt;&lt;/svg&gt;">
+  <style>
+    .container--wide { max-width: 1180px; margin: 0 auto; }
+    .kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin: 0 0 1.5rem; }
+    .kpi { background: white; border-radius: var(--radius); box-shadow: var(--shadow); padding: 1rem 1.1rem; border-top: 4px solid var(--accent); }
+    .kpi b { display: block; font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1; color: var(--blue); }
+    .kpi span { display: block; font-size: 0.9rem; color: var(--text-muted); margin-top: 0.35rem; line-height: 1.3; }
+    .kpi small { display: block; font-size: 0.78rem; color: var(--accent); font-weight: 600; margin-top: 0.3rem; }
+    .controls { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin: 0 0 0.9rem; }
+    .controls .btn { padding: 0.65rem 1.2rem; font-size: 0.95rem; }
+    .controls input[type=range] { flex: 1; min-width: 200px; accent-color: var(--accent); }
+    .datebadge { background: white; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.45rem 0.8rem; font-weight: 600; color: var(--blue); min-width: 9.5rem; text-align: center; }
+    .mapbox { background: white; border-radius: var(--radius); box-shadow: var(--shadow); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .mapbox svg { display: block; font-family: inherit; }
+    .maphint { font-size: 0.82rem; color: var(--text-muted); margin: 0.4rem 0 0; }
+    .legend { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted); margin: 0.9rem 0 0; }
+    .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+    .detail { margin-top: 1rem; background: var(--blue); color: white; border-radius: var(--radius); padding: 1rem 1.2rem; min-height: 5.5rem; }
+    .detail .d { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: #FFD966; font-weight: 700; }
+    .detail .t { font-weight: 700; font-size: 1.08rem; margin: 0.2rem 0; }
+    .detail .x { font-size: 0.97rem; opacity: 0.92; }
+    .node { cursor: pointer; transition: opacity .35s; }
+    .hidden { opacity: 0; pointer-events: none; }
+    .mult label { display: block; font-size: 0.95rem; margin-top: 0.9rem; color: rgba(255,255,255,0.9); }
+    .mult .row { display: flex; align-items: center; gap: 0.9rem; }
+    .mult input[type=range] { flex: 1; accent-color: #FFD966; }
+    .mult output { font-weight: 700; font-size: 1.15rem; min-width: 2.2rem; color: #FFD966; }
+    .schools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin: 1.3rem 0 0.5rem; }
+    .school { border-radius: var(--radius-sm); padding: 0.75rem 0.5rem; background: rgba(255,255,255,0.08); text-align: center; font-size: 0.82rem; transition: background .3s; }
+    .school.on { background: var(--accent); }
+    .school b { display: block; font-size: 1.8rem; line-height: 1.1; }
+    .total { font-size: clamp(1.25rem, 4vw, 1.6rem); font-weight: 700; line-height: 1.3; margin-top: 1rem; }
+    .total em { font-style: normal; color: #FFD966; }
+    .note { font-size: 0.82rem; opacity: 0.75; margin-top: 0.6rem; }
+    @media (min-width: 768px) {
+      .kpis { grid-template-columns: repeat(4, 1fr); }
+      .schools { grid-template-columns: repeat(6, 1fr); }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <a class="back" href="index.html">← Volver a la web del AMPA</a>
-  <h1>Una familia, cuatro escritos…<br><em>y todo un Ayuntamiento en alerta.</em></h1>
-  <p class="lede">Así ha crecido la reclamación por el mantenimiento del CEIP Miguel de Cervantes (Leganés) entre junio y noviembre de 2026. Arrancamos con cuatro escritos. Cada respuesta, y sobre todo cada silencio, abrió una vía nueva. Pulsa <b>▶ Reproducir</b> y mira cómo se ramifica.</p>
 
-  <div class="kpis">
-    <div class="kpi"><b id="k1">4</b><span>escritos registrados</span><br><small>empezamos con 4</small></div>
-    <div class="kpi"><b id="k2">4</b><span>expedientes abiertos</span><br><small>empezamos con 4</small></div>
-    <div class="kpi"><b id="k3">3</b><span>órganos públicos implicados</span><br><small>empezamos con 3</small></div>
-    <div class="kpi"><b id="k4">0</b><span>respuestas y actos que les hemos obligado a producir</span><br><small>empezamos con 0</small></div>
+<header class="topbar">
+  <a href="index.html#inicio" class="topbar__brand">
+    <span class="topbar__logo">MC</span>
+    <span class="topbar__text">Quejas CEIP</span>
+  </a>
+  <button class="topbar__menu" aria-label="Abrir menú" aria-expanded="false" id="menuBtn">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="topbar__nav" id="topNav" aria-label="Navegación principal">
+    <a href="index.html#resultados">Resultados</a>
+    <a href="ramificacion.html" aria-current="page">Cómo se ha ramificado</a>
+    <a href="index.html#problema">El problema</a>
+    <a href="index.html#pasos">Cómo presentar</a>
+    <a href="index.html#escritos">Los escritos</a>
+    <a href="index.html#multiplicador">Por qué funciona</a>
+    <a href="index.html#base-legal">Base legal</a>
+    <a href="index.html#faq">FAQ</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero__inner">
+    <div class="hero__eyebrow">AMPA · CEIP Miguel de Cervantes · Leganés</div>
+    <h1 class="hero__title">Una familia, cuatro escritos…<br><span class="hero__hl">y todo un Ayuntamiento en alerta.</span></h1>
+    <p class="hero__lead">El <strong>30 de junio de 2026</strong> una familia presentó cuatro escritos. Cada respuesta, y sobre todo cada silencio, abrió una vía nueva. En cinco meses el asunto ha llegado al Consejo de Transparencia, al Defensor del Pueblo y a cuatro Consejerías.</p>
+    <div class="hero__cta">
+      <a href="#mapa" class="btn btn--primary">Ver el mapa →</a>
+      <a href="index.html#pasos" class="btn btn--ghost">Presentar los escritos</a>
+    </div>
+    <div class="hero__chips">
+      <span class="chip">📑 4 → 24 escritos</span>
+      <span class="chip">🗂️ 4 → 10 expedientes</span>
+      <span class="chip">🏛️ 9 organismos</span>
+    </div>
   </div>
+</section>
 
-  <div class="controls">
-    <button id="play">▶ Reproducir</button>
-    <button id="all" class="ghost">Ver todo</button>
-    <input id="slider" type="range" min="0" max="160" value="0" aria-label="Fecha">
-    <div class="datebadge" id="date">30 jun 2026</div>
+<section class="section section--alt" id="mapa">
+  <div class="container--wide">
+    <span class="section__eyebrow">El mapa</span>
+    <h2 class="section__title">Cómo se ha ramificado</h2>
+    <p class="section__lead">Pulsa <strong>▶ Reproducir</strong> y mira cómo crece. Toca cualquier punto para ver qué pasó.</p>
+
+    <div class="kpis">
+      <div class="kpi"><b id="k1">4</b><span>escritos registrados</span><small>empezamos con 4</small></div>
+      <div class="kpi"><b id="k2">4</b><span>expedientes abiertos</span><small>empezamos con 4</small></div>
+      <div class="kpi"><b id="k3">3</b><span>organismos públicos implicados</span><small>empezamos con 3</small></div>
+      <div class="kpi"><b id="k4">0</b><span>respuestas y actos que han tenido que producir</span><small>empezamos con 0</small></div>
+    </div>
+
+    <div class="controls">
+      <button id="play" class="btn btn--primary">▶ Reproducir</button>
+      <button id="all" class="btn btn--outline">Ver todo</button>
+      <input id="slider" type="range" min="0" max="160" value="0" aria-label="Fecha">
+      <div class="datebadge" id="date">30 jun 2026</div>
+    </div>
+
+    <div class="mapbox"><svg id="map" width="1160" height="760" viewBox="0 0 1160 760" role="img" aria-label="Mapa de la ramificación de los expedientes"></svg></div>
+    <p class="maphint">En el móvil, desliza el mapa hacia los lados.</p>
+    <div class="legend">
+      <span><i style="background:var(--blue)"></i>Escrito que presentamos</span>
+      <span><i style="background:#fff;border:2.5px solid var(--blue-light)"></i>Respuesta o acto de la Administración</span>
+      <span><i style="background:#fff;border:2px dashed #888"></i>Silencio: vence el plazo sin respuesta</span>
+      <span><i style="background:#E8A33D;border-radius:2px;transform:rotate(45deg)"></i>Efecto fuera del papel</span>
+      <span><i style="background:#fff;border:1.5px dotted #888"></i>Previsto o en preparación</span>
+    </div>
+    <div class="detail" id="detail"><div class="d">Toca cualquier punto</div><div class="t">Todo empieza el 30 de junio con cuatro escritos</div><div class="x">Dos al Ayuntamiento (una queja y una solicitud de información), uno a la Consejería de Educación (Dirección de Área Territorial Madrid-Sur) y una queja al Defensor del Pueblo.</div></div>
   </div>
+</section>
 
-  <div class="mapbox"><svg id="map" width="1160" height="760" viewBox="0 0 1160 760" role="img" aria-label="Mapa de la ramificación de los expedientes"></svg></div>
-  <div class="legend">
-    <span><i style="background:var(--ink)"></i>Escrito que presentamos</span>
-    <span><i style="background:#fff;border:2.5px solid var(--ink)"></i>Respuesta o acto de la Administración</span>
-    <span><i style="background:#fff;border:2px dashed var(--muted)"></i>Silencio: vence el plazo sin respuesta</span>
-    <span><i style="background:var(--efe);border-radius:2px;transform:rotate(45deg)"></i>Efecto fuera del papel</span>
-    <span><i style="background:#fff;border:1.5px dotted var(--muted)"></i>Previsto o en preparación</span>
+<section class="section" id="efectos">
+  <div class="container">
+    <span class="section__eyebrow">Fuera del papel</span>
+    <h2 class="section__title">Lo que se ha movido</h2>
+    <p class="section__lead">Los escritos no se quedan en un cajón: alguien tiene que leerlos, informarlos, contestarlos y responder de ellos ante otro organismo que vigila.</p>
+    <div class="usos">
+      <div class="uso"><h3>Visita de inspección al colegio</h3><p>En septiembre revisan el estado del centro.</p></div>
+      <div class="uso"><h3>Una empresa recorre el edificio para la ITE</h3><p>Acompañada de personal municipal, para la Inspección Técnica del Edificio.</p></div>
+      <div class="uso"><h3>El Ayuntamiento reconoce por escrito que incumplió el plazo</h3><p>Lo admite en sus alegaciones ante el Consejo de Transparencia.</p></div>
+      <div class="uso"><h3>La concejala de Educación llama a la familia</h3><p>3 de noviembre, sin que nadie se lo pidiera: los escritos han llegado arriba.</p></div>
+      <div class="uso"><h3>El Ayuntamiento abre sus archivos</h3><p>12 de noviembre: consulta presencial de los partes de mantenimiento.</p></div>
+      <div class="uso"><h3>Plantillas para el resto de familias</h3><p>Esta web, con escritos listos para que cada familia presente el suyo.</p></div>
+    </div>
   </div>
-  <div class="detail" id="detail"><div class="d">Toca cualquier punto</div><div class="t">Todo empieza el 30 de junio con cuatro escritos</div><div class="x">Dos al Ayuntamiento (una queja y una solicitud de información), uno a la Consejería de Educación (Dirección de Área Territorial Madrid-Sur) y una queja al Defensor del Pueblo.</div></div>
+</section>
 
-  <h2>Lo que ha pasado fuera del papel</h2>
-  <p class="lede">Los escritos no se quedan en un cajón: alguien tiene que leerlos, informarlos, contestarlos y responder de ellos ante otro órgano que vigila.</p>
-  <div class="effects">
-    <div class="effect"><b>Visita de inspección al colegio</b><span>En septiembre revisan el estado del centro.</span></div>
-    <div class="effect"><b>Una empresa recorre el edificio para la ITE</b><span>Acompañada de personal municipal, para la Inspección Técnica del Edificio.</span></div>
-    <div class="effect"><b>El Ayuntamiento reconoce por escrito que incumplió el plazo</b><span>Lo admite en sus alegaciones ante el Consejo de Transparencia.</span></div>
-    <div class="effect"><b>La concejala de Educación llama a la familia</b><span>3 de noviembre, sin que nadie se lo pidiera: los escritos han llegado arriba.</span></div>
-    <div class="effect"><b>El Ayuntamiento abre sus archivos</b><span>12 de noviembre: consulta presencial de los partes de mantenimiento.</span></div>
-    <div class="effect"><b>Plantillas para el resto de familias</b><span>Una web con escritos listos para que cada familia presente el suyo.</span></div>
+<section class="section section--dark" id="varios-colegios">
+  <div class="container">
+    <span class="section__eyebrow section__eyebrow--light">Ahora, multiplica</span>
+    <h2 class="section__title">¿Y si en vez de un colegio fueran varios?</h2>
+    <p class="section__lead section__lead--light">Todo lo anterior lo ha movido <strong>una sola persona</strong>. Cada escrito obliga a un técnico a informarlo, a alguien a firmarlo y a responder ante el Defensor o el Consejo de Transparencia. Juega con los números:</p>
+    <div class="mult">
+      <label for="ns">Colegios que siguen el método</label>
+      <div class="row"><input id="ns" type="range" min="1" max="6" value="1"><output id="nso">1</output></div>
+      <label for="nf">Familias por colegio que presentan su propio escrito</label>
+      <div class="row"><input id="nf" type="range" min="0" max="60" value="0"><output id="nfo">0</output></div>
+      <div class="schools" id="schools"></div>
+      <div class="total" id="total"></div>
+      <div class="note">Estimación sencilla: unos 24 escritos por colegio en cinco meses, como en nuestro caso, más uno por cada familia. Cada uno es un procedimiento con plazo que la Administración tiene que contestar.</div>
+    </div>
   </div>
+</section>
 
-  <h2>¿Y si en vez de un colegio fueran varios?</h2>
-  <p class="lede">Lo de arriba lo ha movido <b>una sola persona</b>. Cada escrito obliga a un técnico a informarlo, a alguien a firmarlo y a responder ante el Defensor o el Consejo de Transparencia. Juega con los números:</p>
-  <div class="mult">
-    <label for="ns">Colegios que siguen el método</label>
-    <div class="row"><input id="ns" type="range" min="1" max="6" value="1"><output id="nso">1</output></div>
-    <label for="nf">Familias por colegio que presentan su propio escrito</label>
-    <div class="row"><input id="nf" type="range" min="0" max="60" value="0"><output id="nfo">0</output></div>
-    <div class="schools" id="schools"></div>
-    <div class="total" id="total"></div>
-    <div class="note">Estimación sencilla: unos 24 escritos por colegio en cinco meses, como en nuestro caso, más uno por cada familia. Cada uno es un procedimiento con plazo que la Administración tiene que contestar.</div>
+<section class="section" id="ideas">
+  <div class="container">
+    <span class="section__eyebrow">Para llevarse</span>
+    <h2 class="section__title">Tres ideas</h2>
+    <div class="usos">
+      <div class="uso"><h3>1. Escrito registrado, no solo ruido</h3><p>Un tuit se olvida. Un escrito con número de registro abre un procedimiento con plazo y obliga a contestar.</p></div>
+      <div class="uso"><h3>2. El silencio también trabaja para ti</h3><p>Si no contestan en plazo, eso abre la siguiente puerta: reclamación, recurso o aviso a quien vigila.</p></div>
+      <div class="uso"><h3>3. Cada respuesta trae la siguiente pregunta</h3><p>Lo que te mandan (informes, decretos, listados) contiene el dato que justifica el próximo escrito.</p></div>
+    </div>
   </div>
+</section>
 
-  <h2>Tres ideas para llevarse</h2>
-  <div class="lessons">
-    <div class="lesson"><h3>1. Escrito registrado, no solo ruido</h3><p>Un tuit se olvida. Un escrito con número de registro abre un procedimiento con plazo y obliga a contestar.</p></div>
-    <div class="lesson"><h3>2. El silencio también trabaja para ti</h3><p>Si no contestan en plazo, eso abre la siguiente puerta: reclamación, recurso o aviso a quien vigila.</p></div>
-    <div class="lesson"><h3>3. Cada respuesta trae la siguiente pregunta</h3><p>Lo que te mandan (informes, decretos, listados) contiene el dato que justifica el próximo escrito.</p></div>
+<section class="cta-final">
+  <div class="container">
+    <h2>¿A qué esperamos?</h2>
+    <p>15-20 minutos por familia. Cuantas más nos sumemos, más difícil es que nos dejen sin respuesta.</p>
+    <a href="index.html#pasos" class="btn btn--primary btn--large">Quiero presentar →</a>
   </div>
+</section>
 
-  <p><a class="cta" href="index.html#pasos">Presenta tú también los escritos →</a></p>
-  <footer>Datos del expediente de la familia que empezó las reclamaciones por el CEIP Miguel de Cervantes (Leganés), junio–noviembre de 2026. Se omiten números de registro y nombres de personas. Actualizado el 13 de noviembre de 2026.</footer>
-</div>
+<footer class="footer">
+  <div class="container">
+    <p><strong>AMPA del CEIP Miguel de Cervantes</strong> · C/ Aragón 19, Leganés (Madrid)</p>
+    <p class="footer__small">Datos del expediente de la familia que empezó las reclamaciones, junio–noviembre de 2026. Se omiten números de registro y nombres de personas.</p>
+    <p class="footer__small">Guías para reclamar a la administración: <a href="https://ventanillalegal.es/guias/" target="_blank" rel="noopener">Ventanilla Legal</a></p>
+    <p class="footer__small">Última actualización: 13 de noviembre de 2026.</p>
+  </div>
+</footer>
 
+<script src="script.js"></script>
 <script>
 const START = new Date(2026,5,28); // 28 jun
 const DAYS = 168;
@@ -142,7 +192,7 @@ const X0 = 250, X1 = 1130;
 const dx = d => X0 + (d/DAYS)*(X1-X0);
 const dayOf = s => { const [dd,mm]=s.split('/').map(Number); return Math.round((new Date(2026,mm-1,dd)-START)/864e5); };
 
-const C = {ayto:'#c4502d', cam:'#2f5f9e', dp:'#2e7d5b', efe:'#b8860b'};
+const C = {ayto:'#C00000', cam:'#2E5A9C', dp:'#2E7D5B', efe:'#E8A33D'};
 const lanes = [
   {id:'A', org:'ayto', name:'Ayuntamiento', sub:'Queja por el mantenimiento', start:'30/06'},
   {id:'C', org:'ayto', name:'Ayuntamiento → Transparencia', sub:'1.ª solicitud de información', start:'30/06'},
@@ -208,8 +258,8 @@ const MAXD = DAYS;
 // month grid
 ['01/07','01/08','01/09','01/10','01/11'].forEach((m,i)=>{
   const x=dx(dayOf(m));
-  el('line',{x1:x,x2:x,y1:30,y2:750,stroke:'#ece5d6','stroke-width':1});
-  el('text',{x:x+6,y:28,'font-size':12,fill:'#8a8273','font-family':'IBM Plex Mono'}).textContent=['jul','ago','sep','oct','nov'][i];
+  el('line',{x1:x,x2:x,y1:30,y2:750,stroke:'#E0E4EC','stroke-width':1});
+  el('text',{x:x+6,y:28,'font-size':12,fill:'#888','font-weight':600}).textContent=['jul','ago','sep','oct','nov'][i];
 });
 
 const laneEls={}, nodeEls=[], linkEls=[];
@@ -217,7 +267,7 @@ lanes.forEach(l=>{
   const y=laneY[l.id], col=C[l.org], s=dayOf(l.start);
   const g=el('g',{class:'node'});
   el('text',{x:16,y:y-3,'font-size':13.5,'font-weight':600,fill:col}, g).textContent=l.name;
-  el('text',{x:16,y:y+14,'font-size':12,fill:'#6b655b'}, g).textContent=l.sub;
+  el('text',{x:16,y:y+14,'font-size':12,fill:'#555'}, g).textContent=l.sub;
   if(l.fx){ el('line',{x1:X0-12,x2:X1,y1:y,y2:y,stroke:col,'stroke-width':1.5,'stroke-dasharray':'2 5',opacity:.6},g); }
   const path=el('line',{x1:dx(s),x2:dx(s),y1:y,y2:y,stroke:col,'stroke-width':l.fx?0:6,'stroke-linecap':'round',opacity:.85},g);
   laneEls[l.id]={g,path,s,y,col,fx:l.fx,draft:l.draft};
@@ -234,11 +284,11 @@ ev.forEach((e,i)=>{
   if(link){ const px=dx(dayOf(link[1])), py=laneY[link[0]];
     const p=el('path',{d:`M${px},${py} C${px+30},${py} ${x-30},${y} ${x},${y}`,fill:'none',stroke:col,'stroke-width':2.5,opacity:.5,'stroke-dasharray':'5 4'}); linkEls.push({p,d}); }
   const g=el('g',{class:'node hidden',tabindex:0});
-  if(t==='env'){ el('circle',{cx:x,cy:y,r:n>1?11:8,fill:'#1d1b18',stroke:'#fffdf8','stroke-width':2.5},g);
+  if(t==='env'){ el('circle',{cx:x,cy:y,r:n>1?11:8,fill:'#1F3864',stroke:'#fff','stroke-width':2.5},g);
     if(n>1) el('text',{x:x,y:y+4,'text-anchor':'middle','font-size':11,'font-weight':600,fill:'#fff'},g).textContent='×'+n; }
-  else if(t==='rec') el('circle',{cx:x,cy:y,r:7.5,fill:'#fffdf8',stroke:col,'stroke-width':3},g);
-  else if(t==='sil') el('circle',{cx:x,cy:y,r:7.5,fill:'#fffdf8',stroke:'#8a8273','stroke-width':2,'stroke-dasharray':'3 2.5'},g);
-  else if(t==='pend') el('circle',{cx:x,cy:y,r:7,fill:'#fffdf8',stroke:col,'stroke-width':1.5,'stroke-dasharray':'2 2',opacity:.7},g);
+  else if(t==='rec') el('circle',{cx:x,cy:y,r:7.5,fill:'#fff',stroke:col,'stroke-width':3},g);
+  else if(t==='sil') el('circle',{cx:x,cy:y,r:7.5,fill:'#fff',stroke:'#888','stroke-width':2,'stroke-dasharray':'3 2.5'},g);
+  else if(t==='pend') el('circle',{cx:x,cy:y,r:7,fill:'#fff',stroke:col,'stroke-width':1.5,'stroke-dasharray':'2 2',opacity:.7},g);
   else el('rect',{x:x-7,y:y-7,width:14,height:14,fill:C.efe,transform:`rotate(45 ${x} ${y})`},g);
   el('circle',{cx:x,cy:y,r:16,fill:'transparent'},g);
   const show=()=>{document.getElementById('detail').innerHTML=`<div class="d">${fmt(d)} · ${({env:'Escrito nuestro',rec:'Respuesta / acto de la Administración',sil:'Silencio administrativo',fx:'Efecto',pend:'Previsto'})[t]}</div><div class="t">${title}</div><div class="x">${text||''}</div>`;};
